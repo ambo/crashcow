@@ -1,2 +1,5 @@
 # crashcow
-Holds the static html from the crashow.de website/blog
+
+This repository holds the extracted files from the crashcow.de Drupal installation. 
+
+URL: https://crashcow.de/

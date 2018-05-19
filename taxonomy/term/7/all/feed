@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="https://crashcow.de/taxonomy/term/7/all" xmlns:dc="https://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>All about GPFS</title>
+    <link>https://crashcow.de/taxonomy/term/7/all</link>
+    <description></description>
+    <language>de</language>
+          <item>
+    <title>Drupal, GPFS, Dateizugriffe und Performance</title>
+    <link>https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance</link>
+    <description>&lt;p&gt;Jedem, der sich schon einmal gewundert hat, warum Drupal in einer etwas gr&amp;ouml;&amp;szlig;eren Installation doch sehr schnell schnarchend langsam wird, sei empfohlen, sich einmal die von Drupal pro Request benutzten Dateien anzuschauen. Ich k&amp;auml;mpfe momentan mit einer Installation, die bei jedem Seitenaufruf mehr als 400 Dateien einlesen musste. Solange sich diese Installation in einer normalen Serverumgebung befindet, sollte das nicht wirklich problematisch sein, braucht php doch nur 0.02 - 0.03 Sekunden um diese Dateien einzulesen und zu verarbeiten.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <category domain="https://crashcow.de/tags/gpfs">GPFS</category>
+ <pubDate>Thu, 10 Sep 2009 15:12:06 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">8 at https://crashcow.de</guid>
+  </item>
+  </channel>
+</rss>

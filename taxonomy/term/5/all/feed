@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="https://crashcow.de/taxonomy/term/5/all" xmlns:dc="https://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>All about Drupal</title>
+    <link>https://crashcow.de/taxonomy/term/5/all</link>
+    <description></description>
+    <language>de</language>
+          <item>
+    <title>Relaunch der Blätter für deutsche und internationale Politik</title>
+    <link>https://crashcow.de/work/relaunch-der-blaetter-fuer-deutsche-und-internationale-politik</link>
+    <description>&lt;p&gt;Es ist vollbracht. Die monatlich erscheinende Zeitschrift &amp;raquo;&lt;a href=&quot;https://www.blaetter.de&quot;&gt;Bl&amp;auml;tter f&amp;uuml;r deutsche und internationale Politik&lt;/a&gt;&amp;laquo; hat endlich ihre neue Website. Die Arbeiten daran dauerten Monate, nicht zuletzt weil das Ganze au&amp;szlig;erhalb meiner regul&amp;auml;ren Arbeitszeit und am Wochenende entstanden ist.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/relaunch-der-blaetter-fuer-deutsche-und-internationale-politik&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/relaunch-der-blaetter-fuer-deutsche-und-internationale-politik#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <category domain="https://crashcow.de/tags/webdesign">Webdesign</category>
+ <pubDate>Sat, 06 Feb 2010 16:20:35 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">12 at https://crashcow.de</guid>
+  </item>
+  <item>
+    <title>Drupal, GPFS, Dateizugriffe und Performance</title>
+    <link>https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance</link>
+    <description>&lt;p&gt;Jedem, der sich schon einmal gewundert hat, warum Drupal in einer etwas gr&amp;ouml;&amp;szlig;eren Installation doch sehr schnell schnarchend langsam wird, sei empfohlen, sich einmal die von Drupal pro Request benutzten Dateien anzuschauen. Ich k&amp;auml;mpfe momentan mit einer Installation, die bei jedem Seitenaufruf mehr als 400 Dateien einlesen musste. Solange sich diese Installation in einer normalen Serverumgebung befindet, sollte das nicht wirklich problematisch sein, braucht php doch nur 0.02 - 0.03 Sekunden um diese Dateien einzulesen und zu verarbeiten.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <category domain="https://crashcow.de/tags/gpfs">GPFS</category>
+ <pubDate>Thu, 10 Sep 2009 15:12:06 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">8 at https://crashcow.de</guid>
+  </item>
+  <item>
+    <title>Drupal Installation, Grundeinrichtung und zusätzliche Module</title>
+    <link>https://crashcow.de/work/drupal-installation-grundeinrichtung-und-zusaetzliche-module</link>
+    <description>&lt;p&gt;In letzter Zeit kommt es doch h&amp;auml;ufiger vor, dass ich Bekannten beim Aufsetzen von Drupal helfe. Das mag auch daher kommen, dass ich nach fast zwei Jahren berufsbedingter Entwicklung mit Drupal es doch vielen Leuten ans Herz lege.&lt;br /&gt;
+An dieser Stelle m&amp;ouml;chte ich - eigenlich eher f&amp;uuml;r mich, aber vielleicht ist ja noch jemand interessiert - kurz auflisten, welche Module momentan in keiner Drupal-Installation fehlen d&amp;uuml;rfen. Diese Liste versteht sich als Work in Progress, daher hegt sie keinen Anspruch auf Vollst&amp;auml;ndigkeit.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/drupal-installation-grundeinrichtung-und-zusaetzliche-module&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/drupal-installation-grundeinrichtung-und-zusaetzliche-module#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <pubDate>Tue, 04 Aug 2009 18:51:24 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">5 at https://crashcow.de</guid>
+  </item>
+  <item>
+    <title>Website für die Reise</title>
+    <link>https://crashcow.de/trip/reisevorbereitung/website-fuer-die-reise</link>
+    <description>&lt;p&gt;
+	So, die Entscheidung steht. Wir brauchen eine Plattform f&amp;uuml;r unsere Reiseberichte. Wenn man schon mal etwas l&amp;auml;nger Urlaub macht, dann will man ja auch die Lieben zu Hause ab und an dar&amp;uuml;ber unterrichten, was man grad so macht. Deshalb gibt es jetzt diese Seite hier. Der Plan war ja schon l&amp;auml;nger da mich auch mal selbst ins Netz zu lassen. Die letzten Monate durfte ich mich sehr detailliert mit Drupal auseinandersetzen und daher fiel die Entscheidung nicht schwer, das Ganze auch mit diesem gro&amp;szlig;artigen CMS umzusetzen. Jeder, der uns hier nach unserem Abflug besucht wird in wahrscheinlich eher unregelm&amp;auml;&amp;szlig;igen Zeitabst&amp;auml;nden ein wenig mit Informationen und Fotos versorgt. Es wird auch eine Karte geben, Auf der wir unseren jeweiligen Standort markieren.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/trip/reisevorbereitung/website-fuer-die-reise&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/trip/reisevorbereitung/website-fuer-die-reise#comments</comments>
+ <category domain="https://crashcow.de/trip">Trip</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <pubDate>Wed, 27 May 2009 14:03:14 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">4 at https://crashcow.de</guid>
+  </item>
+  </channel>
+</rss>

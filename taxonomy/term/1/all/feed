@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="https://crashcow.de/taxonomy/term/1/all" xmlns:dc="https://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>All about Work</title>
+    <link>https://crashcow.de/taxonomy/term/1/all</link>
+    <description></description>
+    <language>de</language>
+          <item>
+    <title>Piwik - Open source Tool für Webstatistik fürs iPhone</title>
+    <link>https://crashcow.de/work/piwik-open-source-tool-fuer-webstatistik-fuers-iphone</link>
+    <description>&lt;p&gt;
+	Schon vor einiger Zeit bin ich auf das freie Statistiktool &lt;a href=&quot;https://piwik.org&quot; target=&quot;_blank&quot;&gt;Piwik&lt;/a&gt; gesto&amp;szlig;en, welches wunderbar und umfangreiche Auskunft &amp;uuml;ber die Besucherzahlen einer Webseite liefert. Mittlerweile ist dieses Tool an verschiedenen Stellen im Einsatz und ich bin immernoch recht zufrieden damit.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/piwik-open-source-tool-fuer-webstatistik-fuers-iphone&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/piwik-open-source-tool-fuer-webstatistik-fuers-iphone#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <pubDate>Fri, 13 Aug 2010 12:11:41 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">27 at https://crashcow.de</guid>
+  </item>
+  <item>
+    <title>Relaunch der Blätter für deutsche und internationale Politik</title>
+    <link>https://crashcow.de/work/relaunch-der-blaetter-fuer-deutsche-und-internationale-politik</link>
+    <description>&lt;p&gt;Es ist vollbracht. Die monatlich erscheinende Zeitschrift &amp;raquo;&lt;a href=&quot;https://www.blaetter.de&quot;&gt;Bl&amp;auml;tter f&amp;uuml;r deutsche und internationale Politik&lt;/a&gt;&amp;laquo; hat endlich ihre neue Website. Die Arbeiten daran dauerten Monate, nicht zuletzt weil das Ganze au&amp;szlig;erhalb meiner regul&amp;auml;ren Arbeitszeit und am Wochenende entstanden ist.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/relaunch-der-blaetter-fuer-deutsche-und-internationale-politik&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/relaunch-der-blaetter-fuer-deutsche-und-internationale-politik#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <category domain="https://crashcow.de/tags/webdesign">Webdesign</category>
+ <pubDate>Sat, 06 Feb 2010 16:20:35 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">12 at https://crashcow.de</guid>
+  </item>
+  <item>
+    <title>Drupal, GPFS, Dateizugriffe und Performance</title>
+    <link>https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance</link>
+    <description>&lt;p&gt;Jedem, der sich schon einmal gewundert hat, warum Drupal in einer etwas gr&amp;ouml;&amp;szlig;eren Installation doch sehr schnell schnarchend langsam wird, sei empfohlen, sich einmal die von Drupal pro Request benutzten Dateien anzuschauen. Ich k&amp;auml;mpfe momentan mit einer Installation, die bei jedem Seitenaufruf mehr als 400 Dateien einlesen musste. Solange sich diese Installation in einer normalen Serverumgebung befindet, sollte das nicht wirklich problematisch sein, braucht php doch nur 0.02 - 0.03 Sekunden um diese Dateien einzulesen und zu verarbeiten.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/drupal-gpfs-dateizugriffe-und-performance#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <category domain="https://crashcow.de/tags/gpfs">GPFS</category>
+ <pubDate>Thu, 10 Sep 2009 15:12:06 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">8 at https://crashcow.de</guid>
+  </item>
+  <item>
+    <title>Drupal Installation, Grundeinrichtung und zusätzliche Module</title>
+    <link>https://crashcow.de/work/drupal-installation-grundeinrichtung-und-zusaetzliche-module</link>
+    <description>&lt;p&gt;In letzter Zeit kommt es doch h&amp;auml;ufiger vor, dass ich Bekannten beim Aufsetzen von Drupal helfe. Das mag auch daher kommen, dass ich nach fast zwei Jahren berufsbedingter Entwicklung mit Drupal es doch vielen Leuten ans Herz lege.&lt;br /&gt;
+An dieser Stelle m&amp;ouml;chte ich - eigenlich eher f&amp;uuml;r mich, aber vielleicht ist ja noch jemand interessiert - kurz auflisten, welche Module momentan in keiner Drupal-Installation fehlen d&amp;uuml;rfen. Diese Liste versteht sich als Work in Progress, daher hegt sie keinen Anspruch auf Vollst&amp;auml;ndigkeit.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://crashcow.de/work/drupal-installation-grundeinrichtung-und-zusaetzliche-module&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+     <comments>https://crashcow.de/work/drupal-installation-grundeinrichtung-und-zusaetzliche-module#comments</comments>
+ <category domain="https://crashcow.de/work">Work</category>
+ <category domain="https://crashcow.de/tags/drupal">Drupal</category>
+ <pubDate>Tue, 04 Aug 2009 18:51:24 +0000</pubDate>
+ <dc:creator>Andreas</dc:creator>
+ <guid isPermaLink="false">5 at https://crashcow.de</guid>
+  </item>
+  </channel>
+</rss>

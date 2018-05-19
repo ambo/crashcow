@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Drupal, GPFS, Dateizugriffe und Performance | crashcow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../sites/all/themes/crashcowde/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" media="all" href="../sites/default/files/css/css_3235e12e6ac1e40c76cb7ade04e308c0.css"
+    />
+    <script type="text/javascript" src="../sites/default/files/js/js_d2337b706bd44e6aeccdc5ee1902e88e.js"></script>
+    <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+            jQuery.extend(Drupal.settings, { "basePath": "/", "fancy_box": { "image_node_display": "_original", "padding": "10", "imageScale": 1, "zoomOpacity": "100", "zoomSpeedIn": "100", "zoomSpeedOut": "100", "zoomSpeedChange": "200", "overlayShow": 1, "overlayOpacity": "0.2", "hideOnContentClick": 1, "centerOnScroll": 1 }, "piwik": { "trackMailto": 1 } });
+//--><!]]>
+    </script>
+    <link rel="apple-touch-icon" href="../sites/all/themes/crashcowde/_css/apple-touch-icon.png" />
+</head>
+
+<body class="">
+    <div class="header">
+        <a href="../index.html" class="hl">
+            <img src="../sites/all/themes/crashcowde/_css/cc.png" alt="crashcow" class="hl" />
+        </a>
+        <div class="meta">
+            <ul class="links">
+                <li class="menu-1177 first">
+                    <a href="../index.html" title="">Home</a>
+                </li>
+                <li class="menu-1324 active-trail active">
+                    <a href="../work.html" title="" class="active">Work</a>
+                </li>
+                <li class="menu-1178">
+                    <a href="../trip.html" title="">Trip</a>
+                </li>
+                <li class="menu-1325 last">
+                    <a href="../stuff.html" title="">Stuff</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="preface">
+            <a href="../index.html" title="Home" rel="home" class="logo">
+                <img src="../sites/all/themes/crashcowde/logo.png" alt="Home" id="logo-image" />
+            </a>
+        </div>
+        <div class="content">
+            <div class="content-inner">
+                <div class="mainbar">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                    </div>
+                    <div class="messages-wrapper">
+                        <div class="messages error">
+                            strict warning: Declaration of views_handler_filter_node_status::operator_form() should be compatible with views_handler_filter::operator_form(&amp;$form,
+                            &amp;$form_state) in /srv/crashcow.de/6.x_sites/all/modules/views/modules/node/views_handler_filter_node_status.inc
+                            on line 0.</div>
+                    </div>
+
+
+
+
+
+                    <div id="node-8" class="teaser article no-pic">
+                        <h2 class="headline">Drupal, GPFS, Dateizugriffe und Performance</h2>
+                        <div class="submitted">on Thursday, 10. September 2009 |
+                            <a href="drupal-gpfs-dateizugriffe-und-performance.html#comments"
+                                class="active">6 comments</a>
+                        </div>
+                        <div class="inner">
+                            <p>Jedem, der sich schon einmal gewundert hat, warum Drupal in einer etwas gr&ouml;&szlig;eren Installation
+                                doch sehr schnell schnarchend langsam wird, sei empfohlen, sich einmal die von Drupal pro
+                                Request benutzten Dateien anzuschauen. Ich k&auml;mpfe momentan mit einer Installation, die
+                                bei jedem Seitenaufruf mehr als 400 Dateien einlesen musste. Solange sich diese Installation
+                                in einer normalen Serverumgebung befindet, sollte das nicht wirklich problematisch sein,
+                                braucht php doch nur 0.02 - 0.03 Sekunden um diese Dateien einzulesen und zu verarbeiten.
+                                Diese extrem verk&uuml;rzte Bearbeitungszeit merkt man deutlich wenn man sich die Latenz
+                                anschaut, mit der Drupal auf einen Request antwortet.</p>
+                            <p>&nbsp;</p>
+                            <p>Hinderlich wird das alles erst, wenn sich mehrere Server ein Filesystem via GPFS sharen, dann
+                                braucht php ganz schnell mehr als 6 Sekunden um die gleichen Operationen auszuf&uuml;hren.
+                                Die L&ouml;sung ist also Drupal aus dem GPFS auszulagern und im normalen Filesystem des Servers
+                                abzulegen. Der Nachteil liegt auf der Hand: keine einzelne &uuml;ber viele Server verteilte
+                                und von allen Servern aus erreichbare Drupalinstallation mehr und daher synchronisieren der
+                                Server von Hand.</p>
+                            <p>&nbsp;</p>
+                            <p>Nach ein paar Experimenten war dann jedoch schnell klar, dass man das &quot;default&quot;-Verzeichnis
+                                und vor allem das darin enthaltene &quot;files&quot; lieber doch wieder ins GPFS zur&uuml;cklegt,
+                                damit sich alle Server in Echtzeit bei den hochgeladenen Dateien und vor allem bei der settings.php
+                                bedienen k&ouml;nnen.</p>
+                            <p>&nbsp;</p>
+                            <p>Der Zeitgewinn ist jedenfalls enorm. In Verbindung mit einem vern&uuml;nftigen Caching - zum
+                                Beispiel memcache - ist es so m&ouml;glich selbst komplexe Drupal-Seiten in weniger als 2
+                                Sekunden auszuliefern.</p>
+                        </div>
+
+                        <div class="terms">
+                            <small>Tags:</small>
+                            <ul class="links inline">
+                                <li class="taxonomy_term_1 first">
+                                    <a href="../work.html" rel="tag" title="">Work</a>
+                                </li>
+                                <li class="taxonomy_term_5">
+                                    <a href="../tags/drupal.html" rel="tag" title="">Drupal</a>
+                                </li>
+                                <li class="taxonomy_term_7 last">
+                                    <a href="../tags/gpfs.html" rel="tag" title="">GPFS</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="node-links">
+                            <small>Links:</small>
+                            <ul class="links inline">
+                                <li class="comment_forbidden first last"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /node-inner, /node -->
+                    <div id="comments" class="comments">
+                        <h3 id="comments-title" class="title">Comments</h3>
+                        <a id="comment-17"></a>
+                        <div class="comment first odd comment-by-anonymous">
+                            <div class="comment-inner clear-block">
+
+                                <div class="left">
+                                    <div class="tb left">
+                                        <img src="../sites/default/files/imagecache/user-thumb/cc-default.png" alt="Gast&#039;s picture" title="Gast&#039;s picture"
+                                            width="50" height="50" class="imagecache imagecache-user-thumb" />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment-author">
+                                    Gast says </div>
+
+                                <div class="comment-submitted">
+                                    9. December 2009 at 19:40 </div>
+
+                                <div class="comment-content">
+                                    <p>Also 2 Sekunden halte ich schon für kritisch bei einem social network. Ist das unter
+                                        starker Last als authorisierter Nutzer oder der Optimalwert für anonymen traffic?
+                                        <br
+                                        /> Wie sind denn die mount optionen (mtime, atime, etc.) und Konfiguration für das
+                                        GPFS (pagepool, filecache, etc.)? Ist die Latenz zum GPFS Server das bottleneck?
+                                        <br
+                                        /> Normalerweise sollte der PHP Bytecode cache die access times doch ausgleichen? Der
+                                        aggregierte code sollte ja gecached werden. Oder waren das vorher diskless clients?
+                                        Läuft das GPFS über ein seperates Netz? Vielleicht lohnt es sich auch in Infiniband
+                                        zu investieren? Auch schonmal mit nginx+fcgi experimentiert?</p>
+                                </div>
+
+                                <div class="links">
+                                    <ul class="links">
+                                        <li class="comment_forbidden first last"></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /comment-inner, /comment -->
+                        <div class="indented">
+                            <a id="comment-19"></a>
+                            <div class="comment even comment-by-node-author">
+                                <div class="comment-inner clear-block">
+
+                                    <div class="left">
+                                        <div class="tb left">
+                                            <img src="../sites/default/files/imagecache/user-thumb/cc-default.png" alt="Andreas&#039;s picture" title="Andreas&#039;s picture"
+                                                width="50" height="50" class="imagecache imagecache-user-thumb" />
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="comment-author">
+                                        Andreas says </div>
+
+                                    <div class="comment-submitted">
+                                        10. December 2009 at 14:14 </div>
+
+                                    <div class="comment-content">
+                                        <p>Das GPFS ist optimal für unsere Serverumgebung eingerichtet, da läuft nicht nur Drupal
+                                            drauf. Daher ging die Lösung eher in die Richtung Drupal auszulagern als an unserer
+                                            Implementation von GPFS herumzuschrauben.
+                                            <br /> Die zwei Sekunden bezogen sich auf einen angemeldeten Nutzer.</p>
+                                    </div>
+
+                                    <div class="links">
+                                        <ul class="links">
+                                            <li class="comment_forbidden first last"></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /comment-inner, /comment -->
+                        </div>
+                        <a id="comment-13"></a>
+                        <div class="comment odd comment-by-anonymous">
+                            <div class="comment-inner clear-block">
+
+                                <div class="left">
+                                    <div class="tb left">
+                                        <img src="../sites/default/files/imagecache/user-thumb/cc-default.png" alt="Gast&#039;s picture" title="Gast&#039;s picture"
+                                            width="50" height="50" class="imagecache imagecache-user-thumb" />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment-author">
+                                    Gast says </div>
+
+                                <div class="comment-submitted">
+                                    4. November 2009 at 12:09 </div>
+
+                                <div class="comment-content">
+                                    <p>Hallo Andreas,
+                                        <br /> gut, vielen Dank für die Antwort :o)
+                                        <br /> Übrigens finde ich berliner.de sehr gut gelungen.
+                                        <br /> Darüber bin ich auf Dich gestoßen (bzw über drupel.org).
+                                        <br /> Viele Grüße,
+                                        <br /> Doris
+                                    </p>
+                                </div>
+
+                                <div class="links">
+                                    <ul class="links">
+                                        <li class="comment_forbidden first last"></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /comment-inner, /comment -->
+                        <div class="indented">
+                            <a id="comment-14"></a>
+                            <div class="comment even comment-by-node-author">
+                                <div class="comment-inner clear-block">
+
+                                    <div class="left">
+                                        <div class="tb left">
+                                            <img src="../sites/default/files/imagecache/user-thumb/cc-default.png" alt="Andreas&#039;s picture" title="Andreas&#039;s picture"
+                                                width="50" height="50" class="imagecache imagecache-user-thumb" />
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="comment-author">
+                                        Andreas says </div>
+
+                                    <div class="comment-submitted">
+                                        4. November 2009 at 16:06 </div>
+
+                                    <div class="comment-content">
+                                        <p>Das freut mich. Danke :)</p>
+                                    </div>
+
+                                    <div class="links">
+                                        <ul class="links">
+                                            <li class="comment_forbidden first last"></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /comment-inner, /comment -->
+                        </div>
+                        <a id="comment-11"></a>
+                        <div class="comment odd comment-by-anonymous">
+                            <div class="comment-inner clear-block">
+
+                                <div class="left">
+                                    <div class="tb left">
+                                        <img src="../sites/default/files/imagecache/user-thumb/cc-default.png" alt="Gast&#039;s picture" title="Gast&#039;s picture"
+                                            width="50" height="50" class="imagecache imagecache-user-thumb" />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment-author">
+                                    Gast says </div>
+
+                                <div class="comment-submitted">
+                                    3. November 2009 at 21:30 </div>
+
+                                <div class="comment-content">
+                                    <p>Das hört sich sehr interessant an... aber leider weiß ich nicht, was dieses GPFS bedeutet.
+                                        <br
+                                        /> Ist das nur möglich, wenn man Zugriff auf den Server hat? Was ist also, wenn ich
+                                        meine Drupal-Seite bei einem ganz normalen Procier wie hosteurope oder strato habe.
+                                        Hat man dann die Voraussetzungen dafür??
+                                        <br /> Sorry für die vielleicht für Dich etwas dumme Frage...
+                                        <br /> Würde mich aber über eine Antwort freuen :o)
+                                        <br /> Doris
+                                    </p>
+                                </div>
+
+                                <div class="links">
+                                    <ul class="links">
+                                        <li class="comment_forbidden first last"></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /comment-inner, /comment -->
+                        <div class="indented">
+                            <a id="comment-12"></a>
+                            <div class="comment last even comment-by-node-author">
+                                <div class="comment-inner clear-block">
+
+                                    <div class="left">
+                                        <div class="tb left">
+                                            <img src="../sites/default/files/imagecache/user-thumb/cc-default.png" alt="Andreas&#039;s picture" title="Andreas&#039;s picture"
+                                                width="50" height="50" class="imagecache imagecache-user-thumb" />
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="comment-author">
+                                        Andreas says </div>
+
+                                    <div class="comment-submitted">
+                                        4. November 2009 at 11:28 </div>
+
+                                    <div class="comment-content">
+                                        <p>Hallo Doris,</p>
+                                        <p>also normalerweise ist das etwas, mit dem man sich nur rumschlägt, wenn man eigene
+                                            Server betreut. GPFS ist dabei ein bestimmtes Dateisystem, welches es erlaubt,
+                                            Festplattenplatz über mehrere Server zu verteilen. </p>
+                                        <p>Im Normalfall solltest du als Nutzer eines großen Providers dir da eigentlich keine
+                                            Gedanken machen müssen. </p>
+                                        <p>VG - Andreas</p>
+                                    </div>
+
+                                    <div class="links">
+                                        <ul class="links">
+                                            <li class="comment_forbidden first last"></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /comment-inner, /comment -->
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- // Mainbar -->
+
+                <div class="sidebar">
+                    <div class="region region-right">
+
+                        <div id="block-views-neu-block_1" class=" teaser">
+
+                            <h3 class="title">Neueste Artikel</h3>
+
+                            <div class="inner">
+                                <div class="views_view view view-neu view-id-neu view-display-id-block_1 view-dom-id-1">
+
+
+
+
+                                    <div class="view-content">
+                                        <div class="item-list">
+                                            <ul>
+                                                <li class="views-row views-row-1 views-row-odd views-row-first">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="piwik-open-source-tool-fuer-webstatistik-fuers-iphone.html">Piwik - Open source Tool für Webstatistik fürs iPhone</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-2 views-row-even">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/new-york.html">New York</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-3 views-row-odd">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html">Berlin in Washington</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-4 views-row-even">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/welcome-to-miami.html">Welcome to Miami</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-5 views-row-odd">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/california-here-we-come.html">California, here we come</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-6 views-row-even">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/aloha-aus-hawaii.html">Aloha aus Hawaii</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-7 views-row-odd">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/neuseeland-schroffweich-und-rausanftschoen.html">Neuseeland - schroffweich und rausanftschön</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-8 views-row-even">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../wir-sind-dann-mal-weg/good-bye-australia.html">Good Bye Australia</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-9 views-row-odd">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../trip/von-der-wueste-in-die-tropen.html">Von der Wüste in die Tropen</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-10 views-row-even views-row-last">
+                                                    <div class="views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="../wir-sind-dann-mal-weg/australien-auf-dem-weg-nach-adelaide.html">Australien - Auf dem Weg nach Adelaide</a>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                                <!-- /.view -->
+                            </div>
+
+
+                        </div>
+                        <!-- /block-inner, /block -->
+                        <div id="block-views-comments_recent-block" class=" teaser">
+
+                            <h3 class="title">Recent comments</h3>
+
+                            <div class="inner">
+                                <div class="views_view view view-comments-recent view-id-comments_recent view-display-id-block view-dom-id-2">
+
+
+
+
+                                    <div class="view-content">
+                                        <div class="item-list">
+                                            <ul>
+                                                <li class="views-row views-row-1 views-row-odd views-row-first">
+                                                    <div class="views-field-subject">
+                                                        <span class="field-content">
+                                                            <a href="../trip/new-york.html#comment-665">Wirklich kaum zu fassen, dass</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-title">
+                                                        <label class="views-label-title">
+                                                            in:
+                                                        </label>
+                                                        <span class="field-content">
+                                                            <a href="../trip/new-york.html">New York</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-timestamp">
+                                                        <span class="field-content">
+                                                            <em>7 years 29 weeks</em> ago</span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-2 views-row-even">
+                                                    <div class="views-field-subject">
+                                                        <span class="field-content">
+                                                            <a href="../trip/new-york.html#comment-664">Hallo und noch einmal `Guten</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-title">
+                                                        <label class="views-label-title">
+                                                            in:
+                                                        </label>
+                                                        <span class="field-content">
+                                                            <a href="../trip/new-york.html">New York</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-timestamp">
+                                                        <span class="field-content">
+                                                            <em>7 years 29 weeks</em> ago</span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-3 views-row-odd">
+                                                    <div class="views-field-subject">
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html#comment-663">Hallo und ´Guten Morgen`in</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-title">
+                                                        <label class="views-label-title">
+                                                            in:
+                                                        </label>
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html">Berlin in Washington</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-timestamp">
+                                                        <span class="field-content">
+                                                            <em>7 years 29 weeks</em> ago</span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-4 views-row-even">
+                                                    <div class="views-field-subject">
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html#comment-662">Guten Morgen Ihr Beiden, ich
+                                                            </a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-title">
+                                                        <label class="views-label-title">
+                                                            in:
+                                                        </label>
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html">Berlin in Washington</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-timestamp">
+                                                        <span class="field-content">
+                                                            <em>7 years 29 weeks</em> ago</span>
+                                                    </div>
+                                                </li>
+                                                <li class="views-row views-row-5 views-row-odd views-row-last">
+                                                    <div class="views-field-subject">
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html#comment-661">Oh maaaan, wie unverschämt</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-title">
+                                                        <label class="views-label-title">
+                                                            in:
+                                                        </label>
+                                                        <span class="field-content">
+                                                            <a href="../trip/berlin-in-washington.html">Berlin in Washington</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="views-field-timestamp">
+                                                        <span class="field-content">
+                                                            <em>7 years 30 weeks</em> ago</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="more-link">
+                                        <a href="../comments/recent.html">
+                                            more </a>
+                                    </div>
+
+
+
+                                </div>
+                                <!-- /.view -->
+                            </div>
+
+
+                        </div>
+                        <!-- /block-inner, /block -->
+                    </div>
+                    <!-- /.region -->
+                </div>
+            </div>
+            <!-- // Content Inner -->
+
+        </div>
+        <!-- // Content -->
+
+        <div class="footer">
+            <div class="region region-footer">
+                <div id="block-system-0" class=" teaser">
+                    <div class="block-inner">
+
+
+                        <div class="">
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- /block-inner, /block -->
+            </div>
+            <!-- /.region -->
+            &copy; by me </div>
+
+    </div>
+</body>
+
+</html>
